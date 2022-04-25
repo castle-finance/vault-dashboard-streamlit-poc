@@ -22,6 +22,8 @@ def get_aws_credentials():
 dynamodb = boto3.resource("dynamodb", region_name="us-east-1", **get_aws_credentials())
 table = dynamodb.Table("vault-history")
 
+st.header("Devnet Staging")
+
 response = table.scan(
     FilterExpression=Attr("vaultId").eq("5zwJzQbw8PzNT2SwkhwrYfriVsLshytWk1UQkkudQv6G")
 )
