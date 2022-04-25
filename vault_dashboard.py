@@ -19,7 +19,7 @@ def get_aws_credentials():
 
 
 # client = boto3.client("dynamodb", **get_aws_credentials())
-dynamodb = boto3.resource("dynamodb", **get_aws_credentials())
+dynamodb = boto3.resource("dynamodb", region_name="us-east-1", **get_aws_credentials())
 table = dynamodb.Table("vault-history")
 
 response = table.scan(
