@@ -1,5 +1,3 @@
-import os
-
 import altair as alt
 import boto3
 import pandas as pd
@@ -7,9 +5,6 @@ import streamlit as st
 from boto3.dynamodb.conditions import Key, Attr
 from boto3.dynamodb.types import TypeDeserializer
 from decimal import Decimal
-from dotenv import load_dotenv
-
-load_dotenv()
 
 deserializer = TypeDeserializer()
 
@@ -18,8 +13,8 @@ st.title("Castle Vault Analytics")
 
 def get_aws_credentials():
     return {
-        "aws_access_key_id": os.environ["AWS_ACCESS"],
-        "aws_secret_access_key": os.environ["AWS_SECRET"],
+        "aws_access_key_id": st.secrets["AWS_ACCESS"],
+        "aws_secret_access_key": st.secrets["AWS_SECRET"],
     }
 
 
